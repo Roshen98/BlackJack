@@ -13,6 +13,7 @@ dealerCardNumber = []
 # def rules():
         
 def placeBet(money):
+    # returns the valid amount the player wants to bet
     while True:
         try:
             bet = int(input("What's your bet: "))
@@ -24,9 +25,11 @@ def placeBet(money):
             print('The bet you entered is not a valid amount')
     
 def randomCard():
+    # returns a random card type and a random card number
     return random.choice(cardType), random.choice(cardNumber)
     
 def gamePlay(money):
+    # returns the money after a single game has been completed
     if money == 0:
         print('You are bankrupt, RIP!')
         return money
@@ -119,12 +122,14 @@ def gamePlay(money):
         return money
 
 def printYourList():
+    # show the player's cards
     print(spacing)
     print('Your Cards:')
     for x, y in zip(yourCardType, yourCardNumber):
         print(x, y)
     
 def printDealerList():
+    # show the dealer's cards
     print(spacing)
     print('Dealer Cards:')
     for x, y in zip(dealerCardType, dealerCardNumber):
@@ -144,12 +149,15 @@ def winCondition(dealerCardTotal,yourCardTotal):
     
         
 def computerChoice(dealerCardTotal):
+    # returns stand if the total sum of the dealer's cards are more than 
+    # or equal to 17, otherwise return hit
     if dealerCardTotal >= 17:
         return 'Stand'
     else:
         return 'Hit'
         
 def doubleOrNot():
+    # returns true if the player wants to double, otherwise returns false
     while True:
         choices = input('Do you want to Double?[Yes/No]')
         if choices == 'Yes' :
@@ -159,6 +167,7 @@ def doubleOrNot():
             
                 
 def choice(betMoney,money):
+    # returns the player's choice on hit or stand
     while True:
         choices = input('Do you want to Hit, Stand?[Hit/Stand]')
         if choices == 'Hit' or choices == 'Stand':
@@ -203,6 +212,7 @@ def calculateCard(number1, number2):
     return firstNumber + secondNumber
     
 def menu():
+    # displays the main menu of the game
     print('IT IS BLACK JACK TIME! COME TO BET YOUR MONEY FOR MORE!')
     money = 2000  # $2000 initially
     print('Initial Amount Owned = $' + str(money))
